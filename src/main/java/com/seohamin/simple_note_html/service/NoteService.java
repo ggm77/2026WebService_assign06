@@ -32,6 +32,7 @@ public class NoteService {
                 noteRequestDto.author(),
                 noteRequestDto.category(),
                 noteRequestDto.content(),
+                noteRequestDto.tags(),
                 null,
                 null
         );
@@ -75,6 +76,7 @@ public class NoteService {
         note.setAuthor(noteRequestDto.author());
         note.setCategory(noteRequestDto.category());
         note.setContent(noteRequestDto.content());
+        note.setTags(noteRequestDto.tags());
 
         return NoteResponseDto.of(noteRepository.save(note));
     }
@@ -101,8 +103,9 @@ public class NoteService {
         if (noteRequestDto.title() == null || noteRequestDto.title().isBlank()
                 || noteRequestDto.author() == null || noteRequestDto.author().isBlank()
                 || noteRequestDto.category() == null || noteRequestDto.category().isBlank()
-                || noteRequestDto.content() == null || noteRequestDto.content().isBlank()) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "title, author, category, content must not be blank");
+                || noteRequestDto.content() == null || noteRequestDto.content().isBlank()
+                || noteRequestDto.tags() == null || noteRequestDto.tags().isBlank()) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "title, author, category, content, tags must not be blank");
         }
     }
 

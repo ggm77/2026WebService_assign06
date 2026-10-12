@@ -4,6 +4,7 @@ public record NoteRequestDto(
         String title,
         String author,
         String category,
-        String content
+        String content,
+        String tags
 ) {
 }

@@ -10,6 +10,7 @@ public record NoteResponseDto(
         String author,
         String category,
         String content,
+        String tags,
         Instant createdAt,
         Instant updatedAt
 ) {
@@ -21,6 +22,7 @@ public record NoteResponseDto(
                 note.getAuthor(),
                 note.getCategory(),
                 note.getContent(),
+                note.getTags(),
                 note.getCreatedAt(),
                 note.getUpdatedAt()
         );

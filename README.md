@@ -78,7 +78,7 @@ src/main
 
 **Q4. Form 데이터는 어떻게 Controller로 전달되나요?**
 
-Form의 `input` `name`과 `NoteRequestDto`의 필드명(`title`, `author`, `category`, `content`)이 같으면 Spring이 DTO를 만들어 값을 넣어 줍니다. JSON은 `@RequestBody`, Form 데이터는 `@ModelAttribute`로 받습니다.
+Form의 `input` `name`과 `NoteRequestDto`의 필드명(`title`, `author`, `category`, `content`, `tags`)이 같으면 Spring이 DTO를 만들어 값을 넣어 줍니다. JSON은 `@RequestBody`, Form 데이터는 `@ModelAttribute`로 받습니다.
 
 **Q5. 등록 후 왜 `redirect:`를 사용하나요?**
 

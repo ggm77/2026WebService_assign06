@@ -34,6 +34,7 @@
                     <th>작성자</th>
                     <th>카테고리</th>
                     <th>내용</th>
+                    <th>태그</th>
                     <th class="pe-4">작성일</th>
                 </tr>
                 </thead>
@@ -44,6 +45,7 @@
                     <td th:text="${note.author}"></td>
                     <td><span class="badge rounded-pill category-badge" th:text="${note.category}"></span></td>
                     <td class="note-content" th:text="${note.content}"></td>
+                    <td class="note-tags" th:text="${note.tags}"></td>
                     <td class="pe-4 note-date" th:text="${note.createdAt}"></td>
                 </tr>
                 </tbody>
@@ -59,7 +61,8 @@
                     <h2 class="h5 mb-0" th:text="${note.title}"></h2>
                     <span class="badge rounded-pill category-badge" th:text="${note.category}"></span>
                 </div>
-                <p class="note-body mb-3" th:text="${note.content}"></p>
+                <p class="note-body mb-2" th:text="${note.content}"></p>
+                <p class="note-tags mb-3" th:text="${note.tags}"></p>
                 <div class="d-flex justify-content-between text-muted small">
                     <span>#<span th:text="${note.id}"></span> · <span th:text="${note.author}"></span></span>
                     <span th:text="${note.createdAt}"></span>

@@ -46,6 +46,12 @@ body {
     word-break: break-word;
 }
 
+.note-tags {
+    color: #4c7df0;
+    font-size: 0.875rem;
+    word-break: break-word;
+}
+
 .note-date {
     white-space: nowrap;
     color: #6c757d;

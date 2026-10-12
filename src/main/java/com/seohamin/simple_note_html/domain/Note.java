@@ -14,6 +14,8 @@ public class Note {
 
     private String content;
 
+    private String tags;
+
     private Instant createdAt;
 
     private Instant updatedAt;
@@ -24,6 +26,7 @@ public class Note {
             final String author,
             final String category,
             final String content,
+            final String tags,
             final Instant createdAt,
             final Instant updatedAt
     ) {
@@ -32,6 +35,7 @@ public class Note {
         this.author = author;
         this.category = category;
         this.content = content;
+        this.tags = tags;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -74,6 +78,14 @@ public class Note {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 
     public Instant getCreatedAt() {
