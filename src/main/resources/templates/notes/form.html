@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Note 등록</title>
+</head>
+<body>
+<h1>Note 등록</h1>
+
+<form th:action="@{/notes}" method="post">
+    <p>제목 <input type="text" name="title"></p>
+    <p>작성자 <input type="text" name="author"></p>
+    <p>카테고리 <input type="text" name="category"></p>
+    <p>내용 <input type="text" name="content"></p>
+    <button type="submit">등록</button>
+    <a th:href="@{/notes}">목록으로</a>
+</form>
+</body>
+</html>
