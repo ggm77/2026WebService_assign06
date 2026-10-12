@@ -8,37 +8,46 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<div class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6">
-            <h1 class="page-title h3 mb-4">Note 등록</h1>
+<nav class="navbar navbar-dark app-navbar">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/notes}">Simple Note</a>
+    </div>
+</nav>
 
-            <div class="note-card">
+<main class="container py-4 py-md-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+            <h1 class="page-title h3 mb-1">Note 등록</h1>
+            <p class="page-subtitle mb-4">새 메모의 내용을 입력하세요.</p>
+
+            <div class="note-card p-4 p-md-5">
                 <form th:action="@{/notes}" method="post">
                     <div class="mb-3">
                         <label class="form-label" for="title">제목</label>
-                        <input class="form-control" type="text" id="title" name="title">
+                        <input class="form-control form-control-lg" type="text" id="title" name="title">
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="author">작성자</label>
-                        <input class="form-control" type="text" id="author" name="author">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="category">카테고리</label>
-                        <input class="form-control" type="text" id="category" name="category">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label class="form-label" for="author">작성자</label>
+                            <input class="form-control form-control-lg" type="text" id="author" name="author">
+                        </div>
+                        <div class="col-12 col-sm-6 mb-3">
+                            <label class="form-label" for="category">카테고리</label>
+                            <input class="form-control form-control-lg" type="text" id="category" name="category">
+                        </div>
                     </div>
                     <div class="mb-4">
                         <label class="form-label" for="content">내용</label>
-                        <input class="form-control" type="text" id="content" name="content">
+                        <input class="form-control form-control-lg" type="text" id="content" name="content">
                     </div>
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-primary" type="submit">등록</button>
-                        <a class="btn btn-outline-secondary" th:href="@{/notes}">목록으로</a>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-end">
+                        <a class="btn btn-outline-secondary btn-lg order-2 order-sm-1" th:href="@{/notes}">목록으로</a>
+                        <button class="btn btn-primary btn-lg order-1 order-sm-2" type="submit">등록</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
-</div>
+</main>
 </body>
 </html>

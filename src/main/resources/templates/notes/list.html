@@ -8,38 +8,65 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
-<div class="container py-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h1 class="page-title h3 mb-0">Note 목록</h1>
-        <a class="btn btn-primary" th:href="@{/notes/new}">새 Note 등록</a>
+<nav class="navbar navbar-dark app-navbar">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/notes}">Simple Note</a>
+    </div>
+</nav>
+
+<main class="container py-4 py-md-5">
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-4">
+        <div>
+            <h1 class="page-title h3 mb-1">Note 목록</h1>
+            <p class="page-subtitle mb-0">등록한 메모를 한눈에 확인하세요.</p>
+        </div>
+        <a class="btn btn-primary btn-lg" th:href="@{/notes/new}">+ 새 Note 등록</a>
     </div>
 
-    <div class="note-card">
+    <!-- 태블릿 · 데스크톱: 표 -->
+    <div class="note-card d-none d-md-block overflow-hidden">
         <div class="table-responsive">
-            <table class="table table-hover align-middle mb-0">
+            <table class="table table-hover align-middle mb-0 note-table">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th class="ps-4">ID</th>
                     <th>제목</th>
                     <th>작성자</th>
                     <th>카테고리</th>
                     <th>내용</th>
-                    <th>작성일</th>
+                    <th class="pe-4">작성일</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="note : ${notes}">
-                    <td th:text="${note.id}"></td>
-                    <td th:text="${note.title}"></td>
+                    <td class="ps-4" th:text="${note.id}"></td>
+                    <td class="fw-semibold" th:text="${note.title}"></td>
                     <td th:text="${note.author}"></td>
-                    <td th:text="${note.category}"></td>
+                    <td><span class="badge rounded-pill category-badge" th:text="${note.category}"></span></td>
                     <td class="note-content" th:text="${note.content}"></td>
-                    <td th:text="${note.createdAt}"></td>
+                    <td class="pe-4 note-date" th:text="${note.createdAt}"></td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-</div>
+
+    <!-- 모바일: 카드 목록 -->
+    <div class="d-md-none d-flex flex-column gap-3">
+        <div class="card note-item" th:each="note : ${notes}">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+                    <h2 class="h5 mb-0" th:text="${note.title}"></h2>
+                    <span class="badge rounded-pill category-badge" th:text="${note.category}"></span>
+                </div>
+                <p class="note-body mb-3" th:text="${note.content}"></p>
+                <div class="d-flex justify-content-between text-muted small">
+                    <span>#<span th:text="${note.id}"></span> · <span th:text="${note.author}"></span></span>
+                    <span th:text="${note.createdAt}"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 </body>
 </html>
