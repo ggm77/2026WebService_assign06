@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Note 목록</title>
+</head>
+<body>
+<h1>Note 목록</h1>
+
+<a th:href="@{/notes/new}">새 Note 등록</a>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>카테고리</th>
+        <th>내용</th>
+        <th>작성일</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="note : ${notes}">
+        <td th:text="${note.id}"></td>
+        <td th:text="${note.title}"></td>
+        <td th:text="${note.author}"></td>
+        <td th:text="${note.category}"></td>
+        <td th:text="${note.content}"></td>
+        <td th:text="${note.createdAt}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
