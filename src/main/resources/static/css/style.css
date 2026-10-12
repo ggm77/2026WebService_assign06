@@ -1,0 +1,18 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.page-title {
+    font-weight: 700;
+}
+
+.note-card {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+}
+
+.note-content {
+    min-width: 12rem;
+}
